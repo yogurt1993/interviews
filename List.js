@@ -5,10 +5,12 @@ import PropTypes from 'prop-types';
 * Легенда
 *
 * Код должен отрисовать список данных, который получен от сервера. Данные запрашиваются при первой загрузке.
-* Высота списка задаётся через свойство из props, но если случился хотя бы один клик на элементе списка, то высота должна стать 'auto'.
-* Также список должен отслеживать скролл на родительском контейнере (parentRef) и через коллбек отправлять свои координаты.
+* Высота списка задаётся через свойство из props, но если случился хотя бы один клик на элементе списка,
+* то высота должна стать 'auto'.
+* Также список должен отслеживать скролл на родительском контейнере (parentRef) и через коллбек
+* отправлять свои координаты.
 */
-class List extends  PureComponent {
+class List extends PureComponent {
  ref = createRef();
  
  shouldComponentUpdate(nextProps, nextState) { 
@@ -71,7 +73,7 @@ class List extends  PureComponent {
  }
 }
  
-Button.propTypes = {
+List.propTypes = {
  onItemClick: PropTypes.func,
  parentRef: PropTypes.shape({
    current: PropTypes.instanceOf(Element)
