@@ -1,5 +1,6 @@
 @Component
 public class TaskManager {
+    @PersistenceContext
     private EntityManager entityManager;
     private static TaskManager instance;
     private LinkedList<Task> queue = new LinkedList<>();
