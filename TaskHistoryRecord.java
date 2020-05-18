@@ -5,8 +5,6 @@ public class TaskHistoryRecord {
     private long id;
     private String record;
 
-    public TaskHistoryRecord() {
-    }
     public TaskHistoryRecord(String record) {
         this.record = record;
     }
