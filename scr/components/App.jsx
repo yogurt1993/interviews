@@ -11,22 +11,22 @@ export const App = () => {
   const [countUsedKeys, setCountUsedKeys] = useState(0);
 
   const toggleLoading = useCallback(() => {
-    setLoadingState(prevState=> !prevState);
-  }, []);
+    setLoadingState(!isLoading);
+  }, [isLoading]);
 
   const incrementUsedKeys = () => {
-    setCountUsedKeys((prevValue) => ++prevValue);
+    setCountUsedKeys((prevValue) => prevValue++);
   }
 
   const decrementUsedKeys = useCallback(() => {
-    setCountUsedKeys((prevValue) => --prevValue);
+    setCountUsedKeys((prevValue) => prevValue--);
   }, []);
 
   const addKey = useCallback(async () => {
     toggleLoading();
 
     const key = await Api.generateKey();
-    setKeys((prevKeys) => [...prevKeys, key]);
+    setKeys((prevKeys) => prevKeys.push(key));
 
     toggleLoading();
   }, [toggleLoading]);
@@ -44,7 +44,7 @@ export const App = () => {
 
       {!keys.length && <div>Список ключей пуст</div>}
 
-      {keys.length > 0 && (
+      {keys.length && (
         <div className="keys">
           {keys.map((key) => (
             <Key
