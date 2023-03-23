@@ -14,8 +14,8 @@ export const Key = ({
   const [isLoading, setLoadingState] = useState(false);
 
   const toggleLoading = useCallback(() => {
-    setLoadingState((prevState) => !prevState);
-  }, []);
+    setLoadingState(!isLoading);
+  }, [isLoading]);
 
   const applyKey = useCallback(
     async (value) => {
@@ -31,7 +31,7 @@ export const Key = ({
     [incrementUsedKeys, isUsed, toggleLoading]
   );
 
-  useEffect(() => {
+  useEffect(async () => {
     return async () => {
       if (!isUsed) return;
 
