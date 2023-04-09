@@ -64,7 +64,7 @@ export const Key = ({
           size="s"
           color="danger"
           label="Удалить"
-          onClick={() => removeKey(value)}
+          onClick={removeKey}
         />
       </div>
     </div>
