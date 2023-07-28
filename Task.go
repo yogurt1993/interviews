@@ -15,14 +15,14 @@ type Task struct {
 	work      UnitOfWork // will call Finish or Reschedule in the end/
 }
 
-func (this Task) Finish() {
-	this.status = "Finished"
-	GetInstance().taskFinished(this)
+func (t Task) Finish() {
+	t.status = "Finished"
+	GetInstance().taskFinished(t)
 }
 
-func (this Task) Reschedule(newTime time.Time) {
-	this.status = "NotStarted"
-	this.timestamp = newTime
-	GetInstance().taskFinished(this)
-	GetInstance().SkeduleTask(this)
+func (t Task) Reschedule(newTime time.Time) {
+	t.status = "NotStarted"
+	t.timestamp = newTime
+	GetInstance().taskFinished(t)
+	GetInstance().SkeduleTask(t)
 }
