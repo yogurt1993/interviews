@@ -81,7 +81,7 @@ class TaskManager(
     }
 
     private fun launchChecker() {
-        taskScope.launch(Dispatchers.Default) {
+        taskScope.launch() {
             while (true) {
                 while (queue[0].schedule <= System.currentTimeMillis()) {
                     runTask(queue.removeFirst())
